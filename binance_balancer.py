@@ -36,19 +36,20 @@ api_secret = os.getenv("api_secret")
 # speed
 
 lastweights = {
-    "XRP":0.028,
-    "AAVE":0.025,
+    "FTT":0.015,
+    "THETA":0.025,
+    "IOTA":0.025,
     "UNI":0.026,
-    "VET":0.030,
+    "AAVE":0.028,
     "DOGE":0.030,
-    "IOTA":0.030,
+    "SNX":0.030,
     "SUSHI":0.030,
     "XTZ":0.032,
+    "XMR":0.032,
     "TRX":0.036,
-    "THETA":0.036,
+    "XRP":0.036,
     "XEM":0.036,
     "EOS":0.040,
-    "XMR":0.042,
     "XLM":0.044,
     "BCH":0.054,
     "LINK":0.057,
@@ -58,7 +59,9 @@ lastweights = {
     "LTC":0.066,
     "USDT":0.0,
     "ETH": 0.07,
-    "BTC": 0.10
+    "BTC": 0.10,
+    "VET":0.000,
+    "USDT":0.000
     }
 
 # Timestamped bitcoin and usd portfolio value
