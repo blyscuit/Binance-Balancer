@@ -175,7 +175,7 @@ def getDiffs():
         currshare = balancesbtc[asset]
         diff = adjshare - currshare
         diffs [ asset ] = diff
-        percentage [ asset ] = round((currshare / totalbtc) - lastweights [asset], 4)
+        percentage [ asset ] = (currshare / totalbtc) - lastweights [asset]
     diffs = dict(sorted(diffs.items(), key=lambda x: x[1]))
     percentage = dict(sorted(percentage.items(), key=lambda x: x[1]))
     print('Adjustments (BTC)')
