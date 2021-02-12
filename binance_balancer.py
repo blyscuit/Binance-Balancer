@@ -175,7 +175,7 @@ def getDiffs():
         currshare = balancesbtc[asset]
         diff = adjshare - currshare
         diffs [ asset ] = diff
-        percentage [ asset ] = (currshare / totalbtc) - lastweights [asset]
+        percentage [ asset ] = round((currshare / totalbtc) - lastweights [asset], 4)
     diffs = dict(sorted(diffs.items(), key=lambda x: x[1]))
     percentage = dict(sorted(percentage.items(), key=lambda x: x[1]))
     print('Adjustments (BTC)')
@@ -244,7 +244,7 @@ def simOrders():
         diff = diffs[asset]
         if asset != 'BTC':
             thresh = float(minQtys[asset])
-            if  percentage[asset] <  -threshold : # threshold $ 1
+            if  diff <  -threshold : # threshold $ 1
                 if asset != 'BTC' and asset != 'USDT':
                     sym = asset + 'BTC'
                     amountf = 0-diff # amount in btc
@@ -274,7 +274,7 @@ def simOrders():
         diff = diffs[ asset ]
         if asset != 'BTC':
             thresh = float( minQtys[ asset ] )
-            if  percentage[asset] >  percentageThreadhold : # threshold $ 1
+            if  diff >  threshold : # threshold $ 1
                 if asset != 'BTC' and asset != 'USDT':
                     sym = asset + 'BTC'
                     amountf = diff
@@ -285,7 +285,7 @@ def simOrders():
                     if minNotion > thresh:
                         diffs[asset] = diffs[asset] - amountf
                         diffs['BTC'] = diffs['BTC'] + amountf
-                        print('Setting buy order for {}, amount:{}, price:{}, thresh:{}'.format(asset,amount,price,percentageThreadhold))
+                        print('Setting buy order for {}, amount:{}, price:{}, thresh:{}'.format(asset,amount,price,threshold))
 
                 elif asset == 'USDT':
                     sym = 'BTCUSDT'
@@ -313,7 +313,7 @@ def placeOrders(market):
         diff = diffs[asset]
         if asset != 'BTC':
             thresh = float(minQtys[asset])
-            if  percentage[asset] <  -percentageThreadhold : # threshold $ 1
+            if  diff <  -threshold : # threshold $ 1
                 if asset != 'BTC' and asset != 'USDT':
                     sym = asset + 'BTC'
                     amountf = 0-diff # amount in btc
@@ -333,7 +333,7 @@ def placeOrders(market):
                                 symbol = sym,
                                 quantity = amount )
                         else:
-                            message = 'Setting sell order for {}, amount:{}, price:{}, thresh:{}'.format(asset,amount,price,percentageThreadhold)
+                            message = 'Setting sell order for {}, amount:{}, price:{}, thresh:{}'.format(asset,amount,price,threshold)
                             print(message)
                             send(message)
                             order = client.order_limit_sell(
@@ -374,7 +374,7 @@ def placeOrders(market):
         diff = diffs[ asset ]
         if asset != 'BTC':
             thresh = float( minQtys[ asset ] )
-            if  percentage[asset] >  percentageThreadhold : # threshold $ 1
+            if  diff >  threshold : # threshold $ 1
                 if asset != 'BTC' and asset != 'USDT':
                     sym = asset + 'BTC'
                     amountf = diff
@@ -394,7 +394,7 @@ def placeOrders(market):
                                 symbol = sym,
                                 quantity = amount )
                         else:
-                            message = 'Setting buy order for {}, amount:{}, price:{}, thresh:{}'.format(asset,amount,price,percentageThreadhold)
+                            message = 'Setting buy order for {}, amount:{}, price:{}, thresh:{}'.format(asset,amount,price,threshold)
                             print(message)
                             send(message)
                             order = client.order_limit_buy(
