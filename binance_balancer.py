@@ -244,7 +244,7 @@ def simOrders():
         diff = diffs[asset]
         if asset != 'BTC':
             thresh = float(minQtys[asset])
-            if  diff <  -percentageThreadhold : # threshold $ 1
+            if  percentage[asset] <  -threshold : # threshold $ 1
                 if asset != 'BTC' and asset != 'USDT':
                     sym = asset + 'BTC'
                     amountf = 0-diff # amount in btc
@@ -255,7 +255,7 @@ def simOrders():
                     if minNotion > thresh:
                         diffs[asset] = diffs[asset] + amountf
                         diffs['BTC'] = diffs['BTC'] - amountf
-                        print('Setting sell order for {}, amount:{}, price:{}, thresh:{}'.format(asset,amount,price,percentageThreadhold))
+                        print('Setting sell order for {}, amount:{}, price:{}, thresh:{}'.format(asset,amount,price,threshold))
 
                 elif asset == 'USDT':
                     sym = 'BTCUSDT'
@@ -274,7 +274,7 @@ def simOrders():
         diff = diffs[ asset ]
         if asset != 'BTC':
             thresh = float( minQtys[ asset ] )
-            if  diff >  percentageThreadhold : # threshold $ 1
+            if  percentage[asset] >  percentageThreadhold : # threshold $ 1
                 if asset != 'BTC' and asset != 'USDT':
                     sym = asset + 'BTC'
                     amountf = diff
@@ -313,7 +313,7 @@ def placeOrders(market):
         diff = diffs[asset]
         if asset != 'BTC':
             thresh = float(minQtys[asset])
-            if  diff <  -percentageThreadhold : # threshold $ 1
+            if  percentage[asset] <  -percentageThreadhold : # threshold $ 1
                 if asset != 'BTC' and asset != 'USDT':
                     sym = asset + 'BTC'
                     amountf = 0-diff # amount in btc
@@ -374,7 +374,7 @@ def placeOrders(market):
         diff = diffs[ asset ]
         if asset != 'BTC':
             thresh = float( minQtys[ asset ] )
-            if  diff >  percentageThreadhold : # threshold $ 1
+            if  percentage[asset] >  percentageThreadhold : # threshold $ 1
                 if asset != 'BTC' and asset != 'USDT':
                     sym = asset + 'BTC'
                     amountf = diff
