@@ -36,14 +36,14 @@ api_secret = os.getenv("api_secret")
 # speed
 
 lastweights = {
-    "FTT":0.015,
+    "SUSHI":0.015,
     "THETA":0.025,
     "IOTA":0.025,
     "UNI":0.026,
     "AAVE":0.028,
     "DOGE":0.030,
     "SNX":0.030,
-    "SUSHI":0.030,
+    "SOL":0.030,
     "XTZ":0.032,
     "XMR":0.032,
     "TRX":0.036,
@@ -60,6 +60,7 @@ lastweights = {
     "ETH": 0.07,
     "BTC": 0.10,
     "VET":0.000,
+    "FTT":0.0,
     "USDT":0.000
     }
 
