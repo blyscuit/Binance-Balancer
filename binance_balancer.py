@@ -37,6 +37,8 @@ api_secret = os.getenv("api_secret")
 
 lastweights = {
     "SUSHI":0.015,
+    "EOS":0.020,
+    "ATOM":0.020,
     "THETA":0.025,
     "IOTA":0.025,
     "UNI":0.026,
@@ -49,7 +51,6 @@ lastweights = {
     "TRX":0.036,
     "XRP":0.036,
     "XEM":0.036,
-    "EOS":0.040,
     "XLM":0.044,
     "BCH":0.054,
     "LINK":0.057,
