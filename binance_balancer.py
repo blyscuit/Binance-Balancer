@@ -38,7 +38,7 @@ api_secret = os.getenv("api_secret")
 lastweights = {
     "SUSHI":0.015,
     "SOL":0.015,
-    "EOS":0.020,
+    "FIL":0.020,
     "ATOM":0.020,
     "THETA":0.025,
     "IOTA":0.025,
