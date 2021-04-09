@@ -36,8 +36,9 @@ api_secret = os.getenv("api_secret")
 # speed
 
 lastweights = {
-    "SUSHI":0.015,
-    "SOL":0.015,
+    "SUSHI":0.010,
+    "SOL":0.010,
+    "LUNA":0.010,
     "FIL":0.022,
     "ATOM":0.020,
     "THETA":0.025,
@@ -161,6 +162,7 @@ def getBalance():
             balances[ asset ] = bal
             balancesbtc[ asset ] = bal * prices[asset]
             totalbtc = totalbtc + bal * prices[asset]
+            print(asset, bal)
     # print(balances)
     print("Balances (BTC)")
     # pprint.pprint(balancesbtc)
