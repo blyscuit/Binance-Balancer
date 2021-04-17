@@ -82,7 +82,7 @@ minQtys = {}
 threshold = 0.00022
 transaced = False
 percentage = {}
-percentageThreadhold = 0.003
+# percentageThreadhold = 0.003
 
 # connect
 client = Client(api_key, api_secret)
